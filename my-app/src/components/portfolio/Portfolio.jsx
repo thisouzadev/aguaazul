@@ -1,39 +1,35 @@
 /* eslint-disable require-jsdoc */
-import React, {useEffect, useState} from 'react';
-import './portfolio.scss';
-import PortfolioList from '../portfolioList/PortfolioList';
-import {
-  frontPortfolio,
-  backPortfolio,
-  pythonPortfolio,
-} from '../../data';
+import React, { useEffect, useState } from "react";
+import "./portfolio.scss";
+import PortfolioList from "../portfolioList/PortfolioList";
+import { frontPortfolio, backPortfolio, pythonPortfolio } from "../../data";
 function Portfolio() {
-  const [selected, setSelected] = useState('front end');
+  const [selected, setSelected] = useState("Manutenção de Piscinas");
   const [data, setData] = useState([]);
   const list = [
     {
-      id: 'front end',
-      title: 'front end',
+      id: "Manutenção de Piscinas",
+      title: "Manutenção de Piscinas",
     },
     {
-      id: 'back end',
-      title: 'back end',
+      id: "Tratamento de Água",
+      title: "Tratamento de Água",
     },
     {
-      id: 'python',
-      title: 'ciencia da computação',
+      id: "Guardião de Piscinas",
+      title: "Guardião de Piscinas",
     },
   ];
 
   useEffect(() => {
     switch (selected) {
-      case 'front end':
+      case "Manutenção de Piscinas":
         setData(frontPortfolio);
         break;
-      case 'back end':
+      case "Tratamento de Água":
         setData(backPortfolio);
         break;
-      case 'python':
+      case "Guardião de Piscinas":
         setData(pythonPortfolio);
         break;
       default:
@@ -43,7 +39,7 @@ function Portfolio() {
 
   return (
     <div className="portfolio" id="portfolio">
-      <h1>Portfolio</h1>
+      <h1>Serviços</h1>
       <ul>
         {list.map((item) => (
           <PortfolioList
@@ -55,23 +51,19 @@ function Portfolio() {
           />
         ))}
       </ul>
-      <div className="container">
+      {/* <div className="container">
         {data.map((data) => (
           <section key={data.id}>
-            <div className="item" >
-              <img
-                src={data.img}
-                alt=""
-              />
+            <div className="item">
+              <img src={data.img} alt="" />
               <h3>{data.title}</h3>
-
             </div>
             <a href={data.link} target="_blank" rel="noopener noreferrer">
               repositório
             </a>
           </section>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
